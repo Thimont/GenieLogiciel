@@ -77,8 +77,13 @@ class MyDate {
      * @return this (my)date
      */
     public MyDate nextDay() {
-        // TODO
-        return this;
+        if(_day == maxDayOfMonth(_month, _year)) {
+            if(_month == 12) { //dernier jour de l'annee
+                return new MyDate(1, 1, _year+1);
+            }
+            return new MyDate(1, _month+1, _year); //dernier jour du mois
+        }
+        return new MyDate(_day+1, _month, _year); //jour suivant
     }
     
     /**
